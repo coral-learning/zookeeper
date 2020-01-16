@@ -1,0 +1,8 @@
+
+// description = 'Apache ZooKeeper - Documentation'
+
+task packageTests(type: Jar) {
+  from sourceSets.test.output
+  classifier = 'tests'
+}
+artifacts.archives packageTests

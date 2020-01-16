@@ -1,0 +1,31 @@
+allprojects {
+    apply plugin: 'maven'
+
+    group = 'org.apache.zookeeper'
+    version = '3.7.0-SNAPSHOT'
+}
+
+subprojects {
+    apply plugin: 'java'
+    tasks.withType(JavaCompile) {
+        options.encoding = 'UTF-8'
+    }
+
+    task packageSources(type: Jar) {
+        classifier = 'sources'
+        from sourceSets.main.allSource
+
+    }
+    artifacts.archives packageSources
+    repositories {
+        mavenLocal()
+
+        maven { url "https://repository.apache.org/snapshots" }
+        maven { url "http://repo.maven.apache.org/maven2" }
+    }
+
+    configurations.all {
+    }
+
+
+}

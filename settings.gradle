@@ -1,0 +1,10 @@
+rootProject.name = 'zookeeper'
+
+include ':zookeeper-server'
+include ':zookeeper-docs'
+include ':zookeeper-jute'
+
+//include ':zookeeper-metrics-providers:zookeeper-prometheus-metrics'
+//include ':zookeeper-recipes:zookeeper-recipes-election'
+//include ':zookeeper-recipes:zookeeper-recipes-lock'
+//include ':zookeeper-recipes:zookeeper-recipes-queue'

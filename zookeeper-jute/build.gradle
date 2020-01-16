@@ -1,0 +1,12 @@
+
+// description = 'Apache ZooKeeper - Jute'
+dependencies {
+    compile group: 'org.apache.yetus', name: 'audience-annotations', version:'0.5.0'
+    testCompile group: 'junit', name: 'junit', version:'4.12'
+}
+
+task packageTests(type: Jar) {
+  from sourceSets.test.output
+  classifier = 'tests'
+}
+artifacts.archives packageTests

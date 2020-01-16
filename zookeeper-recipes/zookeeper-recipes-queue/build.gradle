@@ -1,0 +1,15 @@
+
+// description = 'Apache ZooKeeper - Recipes - Queue'
+dependencies {
+  compile group: 'commons-lang', name: 'commons-lang', version:'2.6'
+  compile project(':zookeeper-jute')
+  compile project(':zookeeper-server')
+
+}
+
+task packageTests(type: Jar) {
+  from sourceSets.test.output
+  classifier = 'tests'
+}
+artifacts.archives packageTests
+
