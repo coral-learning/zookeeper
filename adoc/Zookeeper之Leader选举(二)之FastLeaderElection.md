@@ -20,6 +20,9 @@ FastLeaderElection有三个较为重要的内部类，分别为
 * ToSend
 * Messenger
 
+![](resources/FastLeaderElectionUML.png)
+
+
 ##### 1. Notification类　
 
 ```java
