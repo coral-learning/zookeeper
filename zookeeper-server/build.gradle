@@ -1,7 +1,6 @@
-// description = 'Apache ZooKeeper - Server'
 dependencies {
-    compile group: 'commons-lang', name: 'commons-lang', version: '2.6'
     compile project(':zookeeper-jute')
+    compile group: 'commons-lang', name: 'commons-lang', version: '2.6'
     compile group: 'org.apache.yetus', name: 'audience-annotations', version: '0.5.0'
     compile group: 'io.netty', name: 'netty-handler', version: '4.1.42.Final'
     compile group: 'io.netty', name: 'netty-transport-native-epoll', version: '4.1.42.Final'
@@ -10,6 +9,19 @@ dependencies {
         exclude(module: '*')
     }
     compile group: 'log4j', name: 'log4j', version: '1.2.17'
+    compile group: 'com.github.spotbugs', name: 'spotbugs-annotations', version: '3.1.9'
+    compile group: 'commons-cli', name: 'commons-cli', version: '1.2'
+    compile group: 'org.eclipse.jetty', name: 'jetty-server', version: '9.4.24.v20191120'
+    compile group: 'org.eclipse.jetty', name: 'jetty-servlet', version: '9.4.24.v20191120'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.10.1'
+    compile(group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1') {
+        exclude(module: 'junit')
+    }
+    compile group: 'jline', name: 'jline', version: '2.11'
+    compile(group: 'io.dropwizard.metrics', name: 'metrics-core', version: '3.2.5') {
+        exclude(module: 'slf4j-api')
+    }
+    compile group: 'org.xerial.snappy', name: 'snappy-java', version: '1.1.7'
     testCompile group: 'org.hamcrest', name: 'hamcrest-all', version: '1.3'
     testCompile group: 'commons-collections', name: 'commons-collections', version: '3.2.2'
     testCompile group: 'org.bouncycastle', name: 'bcprov-jdk15on', version: '1.60'
@@ -27,23 +39,5 @@ dependencies {
     testCompile group: 'org.mockito', name: 'mockito-core', version: '2.27.0'
     testCompile group: 'org.jmockit', name: 'jmockit', version: '1.48'
     testCompile group: 'junit', name: 'junit', version: '4.12'
-    compileOnly group: 'com.github.spotbugs', name: 'spotbugs-annotations', version: '3.1.9'
-    compileOnly group: 'commons-cli', name: 'commons-cli', version: '1.2'
-    compileOnly group: 'org.eclipse.jetty', name: 'jetty-server', version: '9.4.24.v20191120'
-    compileOnly group: 'org.eclipse.jetty', name: 'jetty-servlet', version: '9.4.24.v20191120'
-    compileOnly group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.10.1'
-    compileOnly(group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1') {
-        exclude(module: 'junit')
-    }
-    compileOnly group: 'jline', name: 'jline', version: '2.11'
-    compileOnly(group: 'io.dropwizard.metrics', name: 'metrics-core', version: '3.2.5') {
-        exclude(module: 'slf4j-api')
-    }
-    compileOnly group: 'org.xerial.snappy', name: 'snappy-java', version: '1.1.7'
-}
 
-task packageTests(type: Jar) {
-    from sourceSets.test.output
-    classifier = 'tests'
 }
-artifacts.archives packageTests
