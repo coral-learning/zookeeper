@@ -1,10 +1,10 @@
-# [【Zookeeper】源码分析之序列化](https://www.cnblogs.com/leesf456/p/6278853.html)
+### [【Zookeeper】源码分析之序列化](https://www.cnblogs.com/leesf456/p/6278853.html)
 
-**一、前言**
+### 一、前言
 
 在完成了前面的理论学习后，现在可以从源码角度来解析Zookeeper的细节，首先笔者想从序列化入手，因为在网络通信、数据存储中都用到了序列化，下面开始分析。
 
-**二、序列化**
+### 二、序列化*
 
 序列化主要在zookeeper.jute包中，其中涉及的主要接口如下
 
@@ -16,7 +16,7 @@
 
 **· Record**
 
-2.1 InputArchive
+#### InputArchive
 
 其是所有反序列化器都需要实现的接口，其方法如下　
 
@@ -61,7 +61,7 @@ InputArchive的类结构如下
 
 ![](https://images2015.cnblogs.com/blog/616953/201701/616953-20170112101638572-2015760788.png)
 
-1. BinaryInputArchive　　
+##### BinaryInputArchive　　
 
 ```java
 public class BinaryInputArchive implements InputArchive {
@@ -192,7 +192,7 @@ public class BinaryInputArchive implements InputArchive {
 ```
 
 
-2. CsvInputArchive　
+##### CsvInputArchive　
 
 
 ```java
@@ -446,7 +446,7 @@ class CsvInputArchive implements InputArchive {
 ```
 
 
-3. XmlInputArchive　
+#####  XmlInputArchive　
 
 
 ```java
@@ -753,7 +753,7 @@ class XmlInputArchive implements InputArchive {
 
 ```
 
-2.2 OutputArchive
+#### OutputArchive
 
 其是所有序列化器都需要实现此接口，其方法如下。　　
 
@@ -798,7 +798,7 @@ OutputArchive的类结构如下
 
 ![](https://images2015.cnblogs.com/blog/616953/201701/616953-20170112151336510-681738850.png)
 
-1. BinaryOutputArchive　
+##### BinaryOutputArchive　
 
 ```
 /**
@@ -974,7 +974,7 @@ public class BinaryOutputArchive implements OutputArchive {
 }
 ```
 
-2. CsvOutputArchive　
+##### CsvOutputArchive　
 
 ![](https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif)![](https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif)
 
@@ -1153,9 +1153,8 @@ public class CsvOutputArchive implements OutputArchive {
     }
 }
 ```
-View Code
 
-3. XmlOutputArchive
+##### XmlOutputArchive
 
 
 ```
@@ -1437,9 +1436,8 @@ class XmlOutputArchive implements OutputArchive {
 }
 
 ```
-View Code
 
-2.3 Index
+#### Index
 
 其用于迭代反序列化器的迭代器。　　
 
@@ -1457,7 +1455,7 @@ Index的类结构如下
 
 ![](https://images2015.cnblogs.com/blog/616953/201701/616953-20170112102418775-901328202.png)
 
-1. BinaryIndex　
+##### BinaryIndex　
 
 ```
 static private class BinaryIndex implements Index {
@@ -1479,7 +1477,7 @@ static private class BinaryIndex implements Index {
 ```
 
 
-2. CsxIndex　
+##### CsxIndex　
 
 
 ```
@@ -1502,7 +1500,7 @@ private class CsvIndex implements Index {
 ```
 
 
-3. XmlIndex　
+##### XmlIndex　
 
 
 ```
@@ -1527,7 +1525,7 @@ private class XmlIndex implements Index {
 ```
 
 
-2.4 Record
+#### Record
 
 所有用于网络传输或者本地存储的类型都实现该接口，其方法如下　　
 
@@ -1545,7 +1543,7 @@ public interface Record {
 
 所有的实现类都需要实现seriallize和deserialize方法。
 
-**三、示例**
+### 三、示例
 
 下面通过一个示例来理解OutputArchive和InputArchive的搭配使用。　
 
@@ -1672,10 +1670,10 @@ key = leesf, value = 25
 ```
 
 
-**四、总结**
+### 四、总结
 
 本篇博文分析了序列化中涉及到的类，主要是org.zookeeper.jute包下的类，相对来说还是相对简单，也谢谢各位园友的观看~
 
-**五、参考**
+### 五、参考
 
 [源码分析之序列化](https://www.cnblogs.com/leesf456/p/6278853.html)
