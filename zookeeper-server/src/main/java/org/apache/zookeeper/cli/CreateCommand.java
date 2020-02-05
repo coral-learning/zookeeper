@@ -42,10 +42,10 @@ public class CreateCommand extends CliCommand {
     private CommandLine cl;
 
     static {
-        options.addOption(new Option("e", false, "ephemeral"));
-        options.addOption(new Option("s", false, "sequential"));
-        options.addOption(new Option("c", false, "container"));
-        options.addOption(new Option("t", true, "ttl"));
+        options.addOption(new Option("e", false, "ephemeral")); //持久化
+        options.addOption(new Option("s", false, "sequential")); //序列化
+        options.addOption(new Option("c", false, "container"));  //容器
+        options.addOption(new Option("t", true, "ttl"));  //过期
     }
 
     public CreateCommand() {
